@@ -1,0 +1,28 @@
+services:
+  web:
+    build:
+      context: ./ld-fe
+      dockerfile: Dockerfile
+    ports:
+      - "3010:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    container_name: web-link-dashboard
+    networks:
+      - app-network
+
+  back:
+    build:
+      context: ./ld-be
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8080"
+    volumes:
+      - ./buttons.json:/app/buttons.json
+    container_name: back-link-dashboard
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
