@@ -22,11 +22,11 @@ http {
         listen 80;
         server_name web;
 
+        root /usr/share/nginx/html;
         index index.html;
 
         # Ensure routing works with React Router (redirect all to index.html)
         location ${PUBLIC_URL} {
-            root /usr/share/nginx/html;
             try_files $uri $uri/ /index.html;
         }
 

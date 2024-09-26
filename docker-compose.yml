@@ -2,7 +2,7 @@ services:
   web:
     build:
       args:
-        PUBLIC_URL: /chuck
+        PUBLIC_URL: /hreek
       context: ./ld-fe
     ports:
       - "3010:80"
