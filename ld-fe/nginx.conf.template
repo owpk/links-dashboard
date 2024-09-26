@@ -7,9 +7,9 @@ events {
 }
 
 http {
-    include       /etc/nginx/mime.types;
-    default_type  application/octet-stream;
-    sendfile        on;
+    include          /etc/nginx/mime.types;
+    default_type     application/octet-stream;
+    sendfile         on;
     keepalive_timeout  65;
     server_tokens off;  # Disable server version info for security
 
@@ -22,12 +22,11 @@ http {
         listen 80;
         server_name web;
 
-        # Serve the build folder
-        root /usr/share/nginx/html;
         index index.html;
 
         # Ensure routing works with React Router (redirect all to index.html)
-        location / {
+        location ${PUBLIC_URL} {
+            root /usr/share/nginx/html;
             try_files $uri $uri/ /index.html;
         }
 
