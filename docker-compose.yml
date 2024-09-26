@@ -16,7 +16,7 @@ services:
     ports:
       - "8001:8080"
     volumes:
-      - ./buttons.json:/app/buttons.json
+      - ./misc:/app/misc
     container_name: back-link-dashboard
     networks:
       - app-network
