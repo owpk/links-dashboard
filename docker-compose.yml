@@ -2,7 +2,7 @@ services:
   web:
     build:
       args:
-        PUBLIC_URL: /hreek
+        PUBLIC_URL: /home
       context: ./ld-fe
     ports:
       - "3010:80"
@@ -16,7 +16,7 @@ services:
     ports:
       - "8001:8080"
     volumes:
-      - ./buttons.json:/app/buttons.json
+      - ./misc:/app/misc
     container_name: back-link-dashboard
     networks:
       - app-network

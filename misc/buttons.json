@@ -1,0 +1,14 @@
+[
+  {
+    "id": "3e24c252-757d-43e1-810c-827a4e3f3608",
+    "name": "files",
+    "url": "/",
+    "image_link": "https://owpk.ru/api/files/cat?path=%2Fowpk-homepage-misc%2Ffolder.png&size=2784"
+  },
+  {
+    "id": "16ffbece-b153-4e10-a013-def65ee148a5",
+    "name": "portainer",
+    "url": "/portainer",
+    "image_link": "https://owpk.ru/api/files/cat?path=%2Fowpk-homepage-misc%2Fcontainer.png&size=2784"
+  }
+]
