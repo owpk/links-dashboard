@@ -1,11 +1,53 @@
-html{
-  background-color: #282c34;
+:root {
+  --background-color: rgba(33, 35, 43, 1);
+  --acc-color: rgba(33, 184, 172, 0.889);
+  --font-color: rgba(255, 255, 255, 0.9);
+}
+
+html {
+  background-color: var(--background-color);
 }
 
 .App {
-  background-color: #282c34;
+  background-color: var(--background-color);
 }
 
-.App.header {
-  color: gray;
+.card-button {
+  color: var(--font-color);
+  background-color: rgba(200, 200, 200, 0.1);
+}
+
+.headerButton {
+  margin-inline: 10px;
+  padding-bottom: 11px;
+  background-color: transparent;
+  border-width: 0px;
+  border-bottom: 3px solid;
+  color: white;
+  border-color: var(--acc-color);
+}
+
+.mainFont {
+  font-family: 'main-font', sans-serif;
+  font-size: 14px;
+  color: var(--font-color);
+}
+
+.headerFont {
+  font-family: 'main-font';
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.tile {
+  background-color: rgba(150, 150, 150, 0.05);
+  border-radius: 0.5rem;
+  border-width: 0px;
+  border-color: rgba(255, 255, 255, 0.1);
+  border-style: solid;
+}
+
+.tile-box {
+  margin: 0.5rem;
+  padding: 0.5rem;
 }

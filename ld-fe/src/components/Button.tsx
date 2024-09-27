@@ -3,37 +3,61 @@ import { useRecoilState } from "recoil";
 import { buttonRestClient } from "../rest/index";
 import { ButtonProps, buttonsState } from "../store";
 
-export const Button: FunctionComponent<ButtonProps> = (bp: ButtonProps) => {
+const Img = (bp: ButtonProps) => {
     const [imgErorred, setErrored] = useState<Boolean>(false)
+    return (
+        <img style={{ width: "2rem" }}
+            onError={({ currentTarget }) => {
+                if (!imgErorred) {
+                    const loc = window.location
+                    const path = (bp.url === "/" || undefined) ? "" : bp.url
+                    currentTarget.src = `${loc.protocol}//${loc.hostname}:${loc.port}${path}/favicon.ico`
+                    console.log(bp)
+                    setErrored(true)
+                }
+            }} src={bp.image_link} className="card-img" alt="..." />
+    )
+}
+
+const ButtonHorizontal: FunctionComponent<ButtonProps> = (bp: ButtonProps) => {
+    return (
+        <div className="row">
+            <div style={{ borderRight: "1px solid rgba(255, 255, 255, 0)" }} className="col-md-auto">
+                <Img {...bp} />
+            </div>
+            <div style={{ paddingLeft: 0 }} className="col-md-auto">
+                <div style={{ padding: "0 10px 0 0" }}>
+                    <p style={{ marginBottom: "2px" }} className="card-text">{bp.name}
+                        <span style={{color: "var(--acc-color)"}}> ↗</span>
+                    </p>
+                    <span style={{ fontSize: "12px" }} className="headerFont">{bp.body}</span>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export const Button: FunctionComponent<ButtonProps> = (bp: ButtonProps) => {
     const [isHovered, setIsHovered] = useState(false);
 
-    const buttonStyle = {
-        cursor: 'pointer',
+    const buttonStyle: React.CSSProperties = {
         transition: 'all 0.1s ease-in-out',
         transform: isHovered ? 'scale(1.1)' : 'scale(1)',
     };
 
     return (
-        <div 
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-         style={buttonStyle} className="card text-bg-dark h-40 w-40" >
-            <a href={bp.url} target="_blank" rel="noopener noreferrer">
-                <img onError={({ currentTarget }) => {
-                    if (!imgErorred) {
-                        const loc = window.location
-                        const path = (bp.url === "/" || undefined) ? "" : bp.url
-                        currentTarget.src = `${loc.protocol}//${loc.hostname}:${loc.port}${path}/favicon.ico`
-                        console.log(bp)
-                        setErrored(true)
-                    }
-                }} src={bp.image_link} className="card-img" alt="..."
-                    style={{ width: "100%", height: undefined, aspectRatio: 1 }} />
 
-                <div className="card-footer bg-transparent">
-                    <small className="card-text">{bp.name}</small>
-                </div>
-            </a>
+        <div className="card"
+            style={{
+                ...buttonStyle,
+                color: "white",
+                backgroundColor: "rgba(200, 200, 200, 0.01)",
+                border: 'none',
+            }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+        >
+            <ButtonHorizontal {...bp} />
         </div>
     )
 }

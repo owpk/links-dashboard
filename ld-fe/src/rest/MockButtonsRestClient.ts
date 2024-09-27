@@ -4,13 +4,13 @@ import { ButtonProps } from "../store";
 import { ButtonRestClientI } from "./ButtonsRestClientI";
 
 let mockData:ButtonProps[] = [
-        {id: "1", name: "test", url: "https://owpk.ru/dav", image_link: "https://png.pngtree.com/element_our/20190530/ourmid/pngtree-correct-icon-image_1267804.jpg"},
-        {id: "2", name: "test2", url: "https://owpk.ru/portainer", image_link: "https://png.pngtree.com/element_our/20190530/ourmid/pngtree-correct-icon-image_1267804.jpg"},
-        {id: "3", name: "test3", url: "test3", image_link: "https://png.pngtree.com/element_our/20190530/ourmid/pngtree-correct-icon-image_1267804.jpg"}
+        {id: "1", name: "test", url: "https://owpk.ru/dav", image_link: "https://simpleicons.org/icons/files.svg"},
+        {id: "2", name: "test02", url: "https://owpk.ru/portainer", image_link: "https://simpleicons.org/icons/firefox.svg"},
+        {id: "3", name: "test3 Lorem ipsum", body: "pass: 1234 | login: owpk", url: "test3", image_link: "https://png.pngtree.com/element_our/20190530/ourmid/pngtree-correct-icon-image_1267804.jpg"}
 ]
 
-export class MockButtonsRestClient extends 
-    React.Component<{}, {mockData: ButtonProps[]}> 
+export class MockButtonsRestClient extends
+    React.Component<{}, {mockData: ButtonProps[]}>
     implements ButtonRestClientI {
 
     constructor() {

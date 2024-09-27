@@ -5,6 +5,8 @@ export interface ButtonProps {
     id?: string
     name: string
     url: string
+    title?: string
+    body?: string
     image_link: string
 }
 
