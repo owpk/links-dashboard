@@ -57,7 +57,9 @@ export const Button: FunctionComponent<ButtonProps> = (bp: ButtonProps) => {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            <ButtonHorizontal {...bp} />
+                <a style={{color: "inherit", textDecoration: "inherit"}} href={bp.url} target="_blank" rel="noopener noreferrer">
+                    <ButtonHorizontal {...bp} />
+                </a>
         </div>
     )
 }
