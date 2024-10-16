@@ -1,14 +1,36 @@
 [
   {
-    "id": "3e24c252-757d-43e1-810c-827a4e3f3608",
+    "id": "600",
     "name": "files",
-    "url": "/",
-    "image_link": "https://owpk.ru/api/files/cat?path=%2Fowpk-homepage-misc%2Ffolder.png&size=2784"
+    "url": "https://files.owpk.ru",
+    "image_link": "https://simpleicons.org/icons/files.svg"
   },
+
   {
-    "id": "16ffbece-b153-4e10-a013-def65ee148a5",
+    "id": "700",
+    "name": "photos",
+    "url": "https://photos.owpk.ru",
+    "image_link": "https://simpleicons.org/icons/googlephotos.svg"
+  },
+
+  {
+    "id": "800",
+    "name": "notes",
+    "url": "https://notes.owpk.ru",
+    "image_link": "https://simpleicons.org/icons/obsidian.svg"
+  },
+
+  {
+    "id": "900",
     "name": "portainer",
-    "url": "/portainer",
-    "image_link": "https://owpk.ru/api/files/cat?path=%2Fowpk-homepage-misc%2Fcontainer.png&size=2784"
+    "url": "https://portainer.owpk.ru",
+    "image_link": "https://simpleicons.org/icons/portainer.svg"
+  },
+
+  {
+    "id": "1000",
+    "name": "proxy",
+    "url": "https://proxy.owpk.ru",
+    "image_link": "https://simpleicons.org/icons/nginx.svg"
   }
 ]

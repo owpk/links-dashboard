@@ -71,7 +71,7 @@ const EditIcon = ({ buttonProps }: { buttonProps: ButtonProps }) => {
     const [buttons, setButtons] = useRecoilState<ButtonProps[]>(buttonsState)
 
     const handleEditEvent = useCallback(async () => {
-        const resp = await buttonRestClient.updateById(buttonProps)
+        const resp = await buttonRestClient.updateById(buttonProps, "buttons")
 
         if (resp.data === true) {
             const tasksCloneWithoutNewUpdatedOne = buttons.filter(button => !(button.id === buttonProps.id))
@@ -95,7 +95,7 @@ const TrashIcon = ({ id }: { id: string | undefined }) => {
     const [buttons, setButtons] = useRecoilState<ButtonProps[]>(buttonsState)
 
     const handleDeleteEvent = useCallback(async () => {
-        const response = await buttonRestClient.deleteById(id === undefined ? "" : id);
+        const response = await buttonRestClient.deleteById(id === undefined ? "" : id, "buttons");
         console.log(response.data)
         if (response.data === true) {
             console.log("updating buttons state")

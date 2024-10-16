@@ -1,40 +1,42 @@
+import { useEffect, useState } from 'react';
 import { RecoilRoot } from 'recoil';
 import './App.css';
-import { LinksBlock } from './components/ButtonsBlock';
-import { ClockWidget } from './components/ClockWidget';
-import { Column } from './components/Column';
 import { Header } from './components/Header';
-import { Widget } from './components/Widget';
+import { LinksWidget } from './components/LinksWidget';
 
 function App() {
 
+  const [isDarkTheme, setDarkTheme] = useState(() =>
+    window.matchMedia &&
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+  );
+
+  useEffect(() => {
+    document.documentElement.style.colorScheme = isDarkTheme ? 'dark' : 'light';
+  }, [isDarkTheme])
+
   return (
     <RecoilRoot>
-      <div className='App mainFont'>
-        <div className='container'>
-          <Header />
-          <div className='row g-5'>
-            <Column children={
-              [
-                <Widget embed={LinksBlock} title={'Links 0'} />,
-                <Widget embed={ClockWidget} title={'Clock'} />,
-              ]
-            } colType='col-auto' />
+      <div className="App">
+        <Header />
+        <div className="Col-container">
 
-            <Column children={
-              [
-                <Widget embed={LinksBlock} title={'Links 0'} />,
-              ]
-            } colType='col-auto' />
-
-            <Column children={
-              [
-                <Widget embed={LinksBlock} title={'Links 0'} />,
-              ]
-            } colType='col' />
+          <div className="Col-sm">
+            <LinksWidget request="buttons" title={'Links 0'} />
+            <LinksWidget request="buttons" title={'Links 0'} />
           </div>
+
+          <div className="Col-lg">
+            <LinksWidget request="buttons" title={'Links 0'} />
+          </div>
+
+          <div className="Col-sm">
+            <LinksWidget request="buttons" title={'Links 0'} />
+          </div>
+
         </div>
       </div>
+
     </RecoilRoot>
   );
 }

@@ -1,53 +1,128 @@
+* {
+  /* border-style: solid;
+  border-width: 0px;
+  border-color: cadetblue; */
+  font-family: 'main-font', sans-serif;
+  color: var(--font-color-primary);
+}
+
 :root {
-  --background-color: rgba(33, 35, 43, 1);
+  --background-color: rgb(82, 92, 125);
+  --util-color: rgba(100, 100, 100, 0.2);
   --acc-color: rgba(33, 184, 172, 0.889);
-  --font-color: rgba(255, 255, 255, 0.9);
+  --font-color-primary: rgba(255, 255, 255, 0.9);
+  --font-color-secondary: rgba(255, 255, 255, 0.5);
+  --font-color-accent: rgba(33, 184, 172, 0.889);
+
+  @media (prefers-color-scheme: dark) {
+    --background-color: rgb(38, 41, 51);
+  }
+}
+
+#root {
+  background-color: var(--background-color);
 }
 
 html {
   background-color: var(--background-color);
 }
 
-.App {
+body {
   background-color: var(--background-color);
 }
 
-.card-button {
-  color: var(--font-color);
-  background-color: rgba(200, 200, 200, 0.1);
+.App {
+  height: 100vh;
+  width: 75%;
+  margin: 0 auto;
 }
 
-.headerButton {
-  margin-inline: 10px;
-  padding-bottom: 11px;
+.App-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.top-header {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 10px;
+}
+
+.header-logo {
+  min-height: 30px;
+  max-height: 50px;
+}
+
+.header-title {
+  flex-grow: 1;
+  color: green;
+}
+
+.Links-container {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Col-container {
+  gap: 30px;
+  display: flex;
+}
+
+.Col-sm {
+  width: 28%;
+}
+
+.Col-lg {
+  width: 44%;
+}
+
+.ui-container {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(150, 150, 150, 0.1);
+}
+
+.ui-widget {
+  margin-top: 15px;
+}
+
+.widget-title {
+  font-weight: bold;
+  color: var(--font-color-secondary);
+  margin-bottom: 5px;
+}
+
+.hover-element {
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.2)
+  }
+}
+
+.link-hr {
+  text-decoration: none;
+  display: flex;
+  column-gap: 10px;
   background-color: transparent;
-  border-width: 0px;
-  border-bottom: 3px solid;
-  color: white;
-  border-color: var(--acc-color);
 }
 
-.mainFont {
-  font-family: 'main-font', sans-serif;
-  font-size: 14px;
-  color: var(--font-color);
+.link-img {
+  width: 40px;
+  filter: invert(1);
 }
 
-.headerFont {
-  font-family: 'main-font';
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.5);
+.link-body {
+  color: var(--font-color-secondary);
 }
 
-.tile {
-  background-color: rgba(150, 150, 150, 0.05);
-  border-radius: 0.5rem;
-  border-width: 0px;
-  border-color: rgba(255, 255, 255, 0.1);
+.vertical-dash {
   border-style: solid;
-}
-
-.tile-box {
-  margin: 0.5rem;
-  padding: 0.5rem;
+  border-width: 2px;
+  border-radius: 2px;
+  border-color: var(--util-color);
 }
